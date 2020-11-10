@@ -21,10 +21,10 @@
         <!-- Fonts and Styles -->
         @yield('css_before')
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">
-        <link rel="stylesheet" id="css-main" href="{{ mix('/css/oneui.css') }}">
+        <link rel="stylesheet" id="css-main" href="{{ asset('/css/oneui.css') }}">
 
         <!-- You can include a specific file from public/css/themes/ folder to alter the default color theme of the template. eg: -->
-        <!-- <link rel="stylesheet" id="css-theme" href="{{ mix('/css/themes/amethyst.css') }}"> -->
+        <!-- <link rel="stylesheet" id="css-theme" href="{{ asset('/css/themes/amethyst.css') }}"> -->
         @yield('css_after')
 
         <!-- Scripts -->
@@ -144,23 +144,23 @@
                                     <span>Default</span>
                                     <i class="fa fa-circle text-default"></i>
                                 </a>
-                                <a class="dropdown-item d-flex align-items-center justify-content-between" data-toggle="theme" data-theme="{{ mix('css/themes/amethyst.css') }}" href="#">
+                                <a class="dropdown-item d-flex align-items-center justify-content-between" data-toggle="theme" data-theme="{{ asset('css/themes/amethyst.css') }}" href="#">
                                     <span>Amethyst</span>
                                     <i class="fa fa-circle text-amethyst"></i>
                                 </a>
-                                <a class="dropdown-item d-flex align-items-center justify-content-between" data-toggle="theme" data-theme="{{ mix('css/themes/city.css') }}" href="#">
+                                <a class="dropdown-item d-flex align-items-center justify-content-between" data-toggle="theme" data-theme="{{ asset('css/themes/city.css') }}" href="#">
                                     <span>City</span>
                                     <i class="fa fa-circle text-city"></i>
                                 </a>
-                                <a class="dropdown-item d-flex align-items-center justify-content-between" data-toggle="theme" data-theme="{{ mix('css/themes/flat.css') }}" href="#">
+                                <a class="dropdown-item d-flex align-items-center justify-content-between" data-toggle="theme" data-theme="{{ asset('css/themes/flat.css') }}" href="#">
                                     <span>Flat</span>
                                     <i class="fa fa-circle text-flat"></i>
                                 </a>
-                                <a class="dropdown-item d-flex align-items-center justify-content-between" data-toggle="theme" data-theme="{{ mix('css/themes/modern.css') }}" href="#">
+                                <a class="dropdown-item d-flex align-items-center justify-content-between" data-toggle="theme" data-theme="{{ asset('css/themes/modern.css') }}" href="#">
                                     <span>Modern</span>
                                     <i class="fa fa-circle text-modern"></i>
                                 </a>
-                                <a class="dropdown-item d-flex align-items-center justify-content-between" data-toggle="theme" data-theme="{{ mix('css/themes/smooth.css') }}" href="#">
+                                <a class="dropdown-item d-flex align-items-center justify-content-between" data-toggle="theme" data-theme="{{ asset('css/themes/smooth.css') }}" href="#">
                                     <span>Smooth</span>
                                     <i class="fa fa-circle text-smooth"></i>
                                 </a>
@@ -280,13 +280,6 @@
                         </button>
                         <!-- END Toggle Mini Sidebar -->
 
-                        <!-- Apps Modal -->
-                        <!-- Opens the Apps modal found at the bottom of the page, after footer’s markup -->
-                        <button type="button" class="btn btn-sm btn-dual mr-2" data-toggle="modal" data-target="#one-modal-apps">
-                            <i class="si si-grid"></i>
-                        </button>
-                        <!-- END Apps Modal -->
-
                         <!-- Open Search Section (visible on smaller screens) -->
                         <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
                         <button type="button" class="btn btn-sm btn-dual d-sm-none" data-toggle="layout" data-action="header_search_on">
@@ -294,19 +287,7 @@
                         </button>
                         <!-- END Open Search Section -->
 
-                        <!-- Search Form (visible on larger screens) -->
-                        <form class="d-none d-sm-inline-block" action="/dashboard" method="POST">
-                            @csrf
-                            <div class="input-group input-group-sm">
-                                <input type="text" class="form-control form-control-alt" placeholder="Search.." id="page-header-search-input2" name="page-header-search-input2">
-                                <div class="input-group-append">
-                                    <span class="input-group-text bg-body border-0">
-                                        <i class="si si-magnifier"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </form>
-                        <!-- END Search Form -->
+                        
                     </div>
                     <!-- END Left Section -->
 
@@ -326,29 +307,11 @@
                                 <div class="p-2">
                                     <h5 class="dropdown-header text-uppercase">User Options</h5>
                                     <a class="dropdown-item d-flex align-items-center justify-content-between" href="javascript:void(0)">
-                                        <span>Inbox</span>
-                                        <span>
-                                            <span class="badge badge-pill badge-primary">3</span>
-                                            <i class="si si-envelope-open ml-1"></i>
-                                        </span>
-                                    </a>
-                                    <a class="dropdown-item d-flex align-items-center justify-content-between" href="javascript:void(0)">
-                                        <span>Profile</span>
-                                        <span>
-                                            <span class="badge badge-pill badge-success">1</span>
-                                            <i class="si si-user ml-1"></i>
-                                        </span>
-                                    </a>
-                                    <a class="dropdown-item d-flex align-items-center justify-content-between" href="javascript:void(0)">
                                         <span>Settings</span>
                                         <i class="si si-settings"></i>
                                     </a>
                                     <div role="separator" class="dropdown-divider"></div>
                                     <h5 class="dropdown-header text-uppercase">Actions</h5>
-                                    <a class="dropdown-item d-flex align-items-center justify-content-between" href="javascript:void(0)">
-                                        <span>Lock Account</span>
-                                        <i class="si si-lock ml-1"></i>
-                                    </a>
                                     <a class="dropdown-item d-flex align-items-center justify-content-between" href="javascript:void(0)">
                                         <span>Log Out</span>
                                         <i class="si si-logout ml-1"></i>
@@ -359,7 +322,7 @@
                         <!-- END User Dropdown -->
 
                         <!-- Notifications Dropdown -->
-                        <div class="dropdown d-inline-block ml-2">
+                        {{-- <div class="dropdown d-inline-block ml-2">
                             <button type="button" class="btn btn-sm btn-dual" id="page-header-notifications-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="si si-bell"></i>
                                 <span class="badge badge-primary badge-pill">6</span>
@@ -442,14 +405,14 @@
                                     </a>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- END Notifications Dropdown -->
 
                         <!-- Toggle Side Overlay -->
                         <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-                        <button type="button" class="btn btn-sm btn-dual ml-2" data-toggle="layout" data-action="side_overlay_toggle">
+                        {{-- <button type="button" class="btn btn-sm btn-dual ml-2" data-toggle="layout" data-action="side_overlay_toggle">
                             <i class="fa fa-fw fa-list-ul fa-flip-horizontal"></i>
-                        </button>
+                        </button> --}}
                         <!-- END Toggle Side Overlay -->
                     </div>
                     <!-- END Right Section -->
@@ -457,7 +420,7 @@
                 <!-- END Header Content -->
 
                 <!-- Header Search -->
-                <div id="page-header-search" class="overlay-header bg-white">
+                {{-- <div id="page-header-search" class="overlay-header bg-white">
                     <div class="content-header">
                         <form class="w-100" action="/dashboard" method="POST">
                             @csrf
@@ -472,7 +435,7 @@
                             </div>
                         </form>
                    </div>
-                </div>
+                </div> --}}
                 <!-- END Header Search -->
 
                 <!-- Header Loader -->
@@ -509,85 +472,14 @@
             </footer>
             <!-- END Footer -->
 
-            <!-- Apps Modal -->
-            <!-- Opens from the modal toggle button in the header -->
-            <div class="modal fade" id="one-modal-apps" tabindex="-1" role="dialog" aria-labelledby="one-modal-apps" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-top modal-sm" role="document">
-                    <div class="modal-content">
-                        <div class="block block-themed block-transparent mb-0">
-                            <div class="block-header bg-primary-dark">
-                                <h3 class="block-title">Apps</h3>
-                                <div class="block-options">
-                                    <button type="button" class="btn-block-option" data-dismiss="modal" aria-label="Close">
-                                        <i class="si si-close"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="block-content block-content-full">
-                                <div class="row gutters-tiny">
-                                    <div class="col-6">
-                                        <!-- CRM -->
-                                        <a class="block block-rounded block-themed bg-default" href="javascript:void(0)">
-                                            <div class="block-content text-center">
-                                                <i class="si si-speedometer fa-2x text-white-75"></i>
-                                                <p class="font-w600 font-size-sm text-white mt-2 mb-3">
-                                                    CRM
-                                                </p>
-                                            </div>
-                                        </a>
-                                        <!-- END CRM -->
-                                    </div>
-                                    <div class="col-6">
-                                        <!-- Products -->
-                                        <a class="block block-rounded block-themed bg-danger" href="javascript:void(0)">
-                                            <div class="block-content text-center">
-                                                <i class="si si-rocket fa-2x text-white-75"></i>
-                                                <p class="font-w600 font-size-sm text-white mt-2 mb-3">
-                                                    Products
-                                                </p>
-                                            </div>
-                                        </a>
-                                        <!-- END Products -->
-                                    </div>
-                                    <div class="col-6">
-                                        <!-- Sales -->
-                                        <a class="block block-rounded block-themed bg-success mb-0" href="javascript:void(0)">
-                                            <div class="block-content text-center">
-                                                <i class="si si-plane fa-2x text-white-75"></i>
-                                                <p class="font-w600 font-size-sm text-white mt-2 mb-3">
-                                                    Sales
-                                                </p>
-                                            </div>
-                                        </a>
-                                        <!-- END Sales -->
-                                    </div>
-                                    <div class="col-6">
-                                        <!-- Payments -->
-                                        <a class="block block-rounded block-themed bg-warning mb-0" href="javascript:void(0)">
-                                            <div class="block-content text-center">
-                                                <i class="si si-wallet fa-2x text-white-75"></i>
-                                                <p class="font-w600 font-size-sm text-white mt-2 mb-3">
-                                                    Payments
-                                                </p>
-                                            </div>
-                                        </a>
-                                        <!-- END Payments -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- END Apps Modal -->
         </div>
         <!-- END Page Container -->
 
         <!-- OneUI Core JS -->
-        <script src="{{ mix('js/oneui.app.js') }}"></script>
+        <script src="{{ asset('js/oneui.app.js') }}"></script>
 
         <!-- Laravel Scaffolding JS -->
-        <script src="{{ mix('js/laravel.app.js') }}"></script>
+        <script src="{{ asset('js/laravel.app.js') }}"></script>
 
         @yield('js_after')
     </body>

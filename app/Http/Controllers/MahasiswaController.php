@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 class MahasiswaController extends Controller
 {
+    
+
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +19,8 @@ class MahasiswaController extends Controller
         //
         $mahasiswa = Mahasiswa::paginate(5);
         $jml_mahasiswa = Mahasiswa::all()->count();
-        return view('mahasiswa.index', compact('mahasiswa','jml_mahasiswa'));
+        // return view('mahasiswa.index', compact('mahasiswa','jml_mahasiswa'));
+        return view('mahasiswa.blanks', compact('mahasiswa','jml_mahasiswa'));
     }
 
     /**
@@ -139,6 +142,16 @@ class MahasiswaController extends Controller
             echo $result['nim'] . '-' . $result['nama'] . '<br>';
         }
         return $ArrayMahasiswa;
+    }
+
+
+    public function percobaan()
+    {
+        //
+        $mahasiswa = Mahasiswa::paginate(5);
+        $jml_mahasiswa = Mahasiswa::all()->count();
+        // return view('mahasiswa.index', compact('mahasiswa','jml_mahasiswa'));
+        return view('mahasiswa.blanks', compact('mahasiswa','jml_mahasiswa'));
     }
 }
 

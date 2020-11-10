@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'PagesController@home')->middleware('auth');
 Route::get('/about', 'PagesController@about')->middleware('auth');
 
+Route::get('/blanks', 'MahasiswaController@percobaan');
 Route::get('/mahasiswa', 'MahasiswaController@index')->middleware('auth');
 Route::get('/mahasiswa/create', 'MahasiswaController@create')->middleware('auth');
 Route::get('/mahasiswa/{mahasiswa}', 'MahasiswaController@show')->middleware('auth');
